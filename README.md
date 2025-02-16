@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mstrymessage
+
+mstrymessage is an anonymous messaging platform built with Next.js. Users can sign up, verify their account via an email code, and receive anonymous messages on their dashboard.
+
+## Table of Contents
+
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Technology Stack](#technology-stack)
+- [Available Scripts](#available-scripts)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **User Authentication:** Sign up, sign in, and account verification using OTP.
+- **Anonymous Messaging:** Send and receive anonymous messages.
+- **User Dashboard:** Manage and view messages.
+- **Live Updates:** Refresh messages and toggle acceptance of new messages.
+- **Responsive Design:** Clean UI built with Tailwind CSS.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Node.js](https://nodejs.org/en/) (v14 or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd mstrymessage
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. Create a `.env.local` file at the project root with the following variables (adjust as needed):
+   ```
+   NEXTAUTH_SECRET=<your-next-auth-secret>
+   DATABASE_URL=<your-database-connection-string>
+   EMAIL_SERVER=<your-email-server-configurations>
+   EMAIL_FROM=<your-email-from-address>
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+## Project Structure
+
+```plaintext
+mstrymessage/
+├── app/                 # Next.js app directory (layout, pages, etc.)
+├── components/          # UI and functional components (Navbar, MessageCard, etc.)
+├── emails/              # Email templates (e.g., VerificationEmail.tsx)
+├── public/              # Static assets
+├── schemas/             # Zod schemas for form validation
+├── context/             # React context providers (e.g., AuthProvider)
+├── messages.json        # Sample messages data
+├── package.json         # Project metadata and scripts
+└── README.md            # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
+- **Backend:** Next.js API routes, Node.js
+- **Authentication:** NextAuth.js
+- **Form Validation:** react-hook-form and Zod
+- **Database:** MongoDB (via Mongoose) or any supported database
+- **Email Verification:** @react-email/components for templating emails
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+Inside the project directory, you can run:
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev`  
+  Starts the Next.js development server.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run build`  
+  Builds the application for production.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `npm run start`  
+  Runs the built production application.
 
-## Deploy on Vercel
+- `npm run lint`  
+  Runs ESLint to check for code quality issues.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+mstrymessage can be deployed on platforms like Vercel. For deployment:
+
+1. Connect your repository to [Vercel](https://vercel.com/).
+2. Set environment variables in Vercel using your `.env.local` configurations.
+3. Deploy the app following Vercel's deployment guidelines.
+
+For more details on deployment, refer to the [Next.js Deployment Docs](https://nextjs.org/docs/deployment).
+
+## Contributing
+
+Contributions are welcome! Follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes.
+4. Push to the branch.
+5. Open a Pull Request.
+
+Please adhere to code style and testing guidelines.
+
+## License
+
+This project is [MIT licensed](LICENSE).
